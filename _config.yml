@@ -1,0 +1,26 @@
+markdown: redcarpet
+permalink: /:categories/:title.html
+url: 
+lsi: false
+pygments: true
+safe: true
+auto: false 
+
+paginate: 8
+paginate_path: "page:num"
+
+# presonal config
+title: Wanming Liao's Blog
+description: Wanming Liao's Blog, powered by Jekyll...
+
+author: Wanming Liao
+
+timezone:    Australia/Sydney
+
+seo: 
+  keyword: 
+  description: 
+config:
+  js_dir:
+  img_dir:
+  css_dir:
