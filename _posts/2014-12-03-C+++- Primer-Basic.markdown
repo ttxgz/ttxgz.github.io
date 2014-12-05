@@ -191,12 +191,72 @@ I am reading _*the C++ Primer*_, and will mark down notes about critical things 
 `	}   `  
 
 ### 6.13.3 Standard Exceptions  
-[images16](/assets/2014-12-03-C+++- Primer-Basic/standard_exceptions.png)  
+![images16](/assets/2014-12-03-C+++- Primer-Basic/standard_exceptions.png)  
 
 # 7. Functions   
 ### 7.2.3 Vector as parameter   
-It is better to use iterator than the vector for the efficiency of copying. Eg:   
-![images16](/assets/2014-12-03-C+++- Primer-Basic/iterator.png)     
++ It is better to use iterator than the vector for the efficiency of copying. Eg:   
+![images17](/assets/2014-12-03-C+++- Primer-Basic/iterator_param.png)     
+
+## 7.7 Class Member Functions  
+### 7.7.1 the definition of class member functions
++ A member function may **access the private** members of its class.  
++ the pointer \"this\": an extra, implicit parameter  
+
+### 7.7.3 constructor
++ usually public  
++ no return type  
++ a simple example of a constructor  
+	``` class con_fun{   
+		int a, b;   
+		con_fun():a(6),b(7) {};   
+	}; ```  
+	
+## 7.8 Reloaded Functions  
++ main() can not be overloaded.
++ can not overload functions only with different return type but with same parameter list  
++ parameter list should be actually different. The follow reload functions are **wrong**:  
+![images18](/assets/2014-12-03-C+++- Primer-Basic/overload_1.png)   
+
+## 7.9 Pointers for Functions
++ A sample:
+` void (*pd)(const string &, const string &);`  
++ the parentheses around *pd are necessary
++ simplify function pointer definition:  
+	`typedef bool (*cmpFcn)(const string &, const string &);`  
+	`bool lengthCompare(const string &, const string &);`  
+	`cmpFcn pf1 = 0;             // ok: unbound pointer to function`  
+    `cmpFcn pf2 = lengthCompare; // ok: pointer type matches function's type`  
+    `pf1 = lengthCompare;        // ok: pointer type matches function's type`  
+	`pf1 = &lengthCompare;       // ok: the same as the above line`  
+    `pf2 = pf1;                  // ok: pointer types match`  
++ a function pointer with value 0 means it does not point to any function  
++ call of function pointer  
+	`cmpFcn pf = lengthCompare;`  
+    `lengthCompare("hi", "bye"); // direct call`  
+    `pf("hi", "bye");            // equivalent call: pf1 implicitly dereferenced`  
+    `(*pf)("hi", "bye");         // equivalent call: pf1 explicitly dereferenced`  
++ returning a pointer of function  
+	`// ff is a function taking an int and returning a function pointer`  
+    `// the function pointed to returns an int and takes an int* and an int`  
+    `int (*ff(int))(int*, int);`  
+	
+	it equals to:  
+	+ a function ff(int), 
+	+ and the return value of ff(int) is a function pointer int (*)(int*, int)  
+	
+	To make it simple, it equals to:  
+	`// PF is a pointer to a function returning an int, taking an int* and an int`  
+	`typedef int (*PF)(int*, int);`  
+	`PF ff(int);  // ff returns a pointer to function`  
+
+
+
+
+
+
+	
+
 
 # code address
 <https://github.com/ttxgz/activity_quiz/>
