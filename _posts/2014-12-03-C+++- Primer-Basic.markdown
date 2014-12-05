@@ -1,6 +1,6 @@
 ---
 layout: post
-category: "Android"
+category: "C++"
 title:  "C++ Primer -- Basic"
 tags: [android]
 ---
