@@ -250,6 +250,86 @@ I am reading _*the C++ Primer*_, and will mark down notes about critical things 
 	`typedef int (*PF)(int*, int);`  
 	`PF ff(int);  // ff returns a pointer to function`  
 
+# 8. the IO Library  
+## 8.1 IO Library Types and Headers  
+![images19](/assets/2014-12-03-C+++- Primer-Basic/iolib.png)   
+
+## 8.2 IO condition states  
+![images20](/assets/2014-12-03-C+++- Primer-Basic/io_states.png)  
+
+## 8.3 Manage Output Buffer  
++ ways to flush the output buffer:  
+	+ The program completes **normally**  
+	+ the buffer becomes **full**  
+	+ explicitly using a manipulator  
+	![images21](/assets/2014-12-03-C+++- Primer-Basic/flush_1.png)
+	+ use the **unitbuf** manipulator ( empty the buffer after each output operation )  
+		`cout << unitbuf << "first" << "second" << nounitbuf; `  
+		it is equals to:  
+		`cout << "first" << flush << "second" << flush; ` 
+		unitbuf: flush the stream after every write  
+		nounitbuf: restores the stream to use normal, **system-managed** buffer flushing.  
+		
+	+ tie the output stream to an input stream  
+		+ When an input stream is tied to an output stream, any attempt to read the input stream will first flush the buffer associated output stream.  
+		+ **Interactive systems** usually **should tie** their input and output streams to guaranteed that any output, which might include prompts to the user, has been written **before** attempting to read.  
+			![images20](/assets/2014-12-03-C+++- Primer-Basic/flush_2.png)  
+			
++ Buffers Are **Not Flushed** if the Program **Crashes**  
+
+## 8.4 File Input&Output  
++ File IO:  
+	![images22](/assets/2014-12-03-C+++- Primer-Basic/file_1.png)  
+
+### 8.4.1 Usage of File IO
++ initialization 
+	+ an example:  
+		` // construct an ifstream and bind it to the file named ifile	`  
+		` ifstream infile(ifile.c_str());								`  
+		` // ofstream output file object to write file named ofile		`  
+		` ofstream outfile(ofile.c_str());								`  
+		or  
+		`ifstream infile;    // unbound input file stream						`  
+		`ofstream outfile;   // unbound output file stream						`  
+		`infile.open("in");   // open file named "in" in the current directory	`  
+		`outfile.open("out"); // open file named "out" in the current directory	`  
+	+ better to read the file name into a string, not a C-style character array  
++ check:  
+	`// check that the open succeeded					`  	
+    `if (!infile) {										`  
+    `    cerr << "error: unable to open input file: "	`  
+    `         << ifile << endl;							`  								
+    `    return -1;										`  			
+    `}		
+	`  	
++ Rebinding: have to **close** and beter to **clear** before rebinding file	 
+	![images23](/assets/2014-12-03-C+++- Primer-Basic/file_2.png) 
+
+### 8.4.2 Open Modes
++ ![images23](/assets/2014-12-03-C+++- Primer-Basic/file_mode.png)  
++ out mode:  default value = out + trunc, meaning that it will clear the output file first.  
++ **preserve** the existing data in a file opened by an ofstream is to specify **app** mode explicitly:  
+	`  //  output mode by default; truncates file named "file1"				`  	
+    ` ofstream outfile("file1");											`  	
+    ` // equivalent effect: "file1" is explicitly truncated					`  	
+    ` ofstream outfile2("file1", ofstream::out | ofstream::trunc);			`  	
+    ` //  append mode; adds new data at end of existing file named "file2"	`  		
+    ` ofstream appfile("file2", ofstream::app);								`  	
++ fstream: default value = in + out, but not truncate anything in the file  
++ ![images24](/assets/2014-12-03-C+++- Primer-Basic/file_mode_2.png)  
+
+
+
+
+
+
+	
+
+
+
+
+
+
 
 
 
