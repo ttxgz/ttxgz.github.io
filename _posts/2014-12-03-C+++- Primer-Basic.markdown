@@ -2,7 +2,7 @@
 layout: post
 category: "C++"
 title:  "C++ Primer -- Basic"
-tags: [android]
+tags: [C++]
 ---
 
 I am reading _*the C++ Primer*_, and will mark down notes about critical things that easily confuse us.
@@ -150,7 +150,7 @@ I am reading _*the C++ Primer*_, and will mark down notes about critical things 
 ### 6.13.1 A throw expression  
 `	if(tmp > 10)  `  
 `	{  `	
-`		cout << " I will throw a runtime_error exception now!" << endl;  ``  
+`		cout << " I will throw a runtime_error exception now!" << endl;  `  
 `		throw runtime_error("This number is larger than 10!"); //After throwing the err, will be caught immediately, so will not execute the push_back!`  
 `	}`  
 `	if(tmp < 5)`  
@@ -317,8 +317,6 @@ I am reading _*the C++ Primer*_, and will mark down notes about critical things 
     ` ofstream appfile("file2", ofstream::app);								`  	
 + fstream: default value = in + out, but not truncate anything in the file  
 + ![images24](/assets/2014-12-03-C+++- Primer-Basic/file_mode_2.png)  
-
-
 
 
 
