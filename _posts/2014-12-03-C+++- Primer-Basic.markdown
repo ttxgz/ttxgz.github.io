@@ -318,23 +318,5 @@ I am reading _*the C++ Primer*_, and will mark down notes about critical things 
 + fstream: default value = in + out, but not truncate anything in the file  
 + ![images24](/assets/2014-12-03-C+++- Primer-Basic/file_mode_2.png)  
 
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
 # code address
 <https://github.com/ttxgz/activity_quiz/>

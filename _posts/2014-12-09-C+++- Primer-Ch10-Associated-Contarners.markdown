@@ -82,12 +82,6 @@ Critical Notes of **C++ PRIMER**, Chapter 10.
 	![images27](/assets/2014-12-08-C+++- Primer-ch10/bound_code.png)  
 + `equal_range`  
 	![images28](/assets/2014-12-08-C+++- Primer-ch10/equal_range.png)  
-	
 
-
-
-
-
-
-# practise question:  
-+ 10.18,19,10.28  
+# Code:  
+<https://github.com/ttxgz/cpp_practise/tree/associtative_container>
